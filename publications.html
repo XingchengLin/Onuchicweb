@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="KeyWords" content="Protein Folding, Protein Function, Protein Kinetics, Go Model, Funnel, Free Energy, Energy Barrier, Folding Kinetics, Electron Transfer, CTBP, Onuchic" /> <!-- Wichtig für viele Suchmaschinen sind     Schlüsselwörter die die Seite beschreiben. Auch Wortgruppen sind erlaubt. Alles getrennt durch Kommas. -->
+    <meta name="Description" content="Overview of the Onuchic Research group" /> <!-- Hier sollte ein Beschreibungstext der ganua den Inhalt dieser einen Seite in verkürzter Form wiedergibt. -->
+    <meta name="author" content="Kareem Mehrabiani" />
+    <link rel="shortcut icon" href="#">
+    
+	<link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    
+    <!-----------CUSTOM CSS-------------->
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.5/cosmo/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/main.css">
+
+    <!---------TITLE FOR PAGE (shows up in tab)----------->
+	<title>Publications</title>
+
+</head>
+
+<body>
+    
+
+	<div class="navbar-static-top">
+        <div class="container">
+            <ul class="nav nav-pills">
+                <li role="presentation"><a href="index.html">Home</a></li>
+                <li role="presentation"><a href="people.html">People</a></li>
+                <li role="presentation"><a href="projects.html">Projects</a></li>
+                <li role="presentation" class="active"><a href="publications.html">Publications</a></li>
+                <li role="presentation"><a href="software.html">Software</a></li>
+            </ul>
+        </div>
+	</div>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>The Onuchic Group</h1>
+        </div>
+    </div>
+    <div class="pictures">
+        <div class="container">
+            <h3><strong>Publications</strong></h3>
+            <div id="main" class="wide">
+    
+                <script type="text/javascript">
+
+                    // QuickSearch script for tables
+                    //
+                    // Copyright (c) 2006, Mark Schenk
+                    //
+                    // Permission to use, copy, modify, and distribute this software for any
+                    // purpose with or without fee is hereby granted, provided that the above
+                    // copyright notice and this permission notice appear in all copies.
+                    //
+
+                    // Some features:
+                    // + combination of CSS/JavaScript degrades nicely
+                    // + easy to set number of columns to search
+                    // + allows RegExp searches
+                    //   e.g. to search for entries between 1980 and 1989, type:  198[0-9]
+                    //   e.g. for any entry ending with 'symmetry', type:  symmetry$
+                    //   e.g. for all reftypes that are books: ^book$, or ^article$
+                    // + easy toggling of Abstract/Review/BibTeX
+                    
+                    if (window.opera) { 
+                        document.addEventListener("load",initSearch,false) } 
+                    else if (window.addEventListener) {
+                        window.addEventListener("load",initSearch,false) }
+                    else if (window.attachEvent) {
+                        window.attachEvent("onload", initSearch); }
+
+                    function initSearch() {
+	// basic object detection
+	if(!document.getElementById || !document.getElementsByTagName) { return; }
+
+	// check if QuickSearch table AND search area is present 
+	if (!document.getElementById('qstable')||!document.getElementById('qs')) { return; }
+
+	// give id of the table that has QuickSearch
+	// is global variable on purpose
+	searchTable = document.getElementById('qstable');
+	
+	setStatistics(-1)
+
+	document.getElementById('qs').style.display = 'block';
+	document.getElementById('qsfield').onkeyup = testEvent;
+}
+
+                    function quickSearch(tInput){
+	searchText = new RegExp(tInput.value,"i");
+	var allRows = searchTable.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+	var inRows = new Array();
+
+	for (var i=0, k=0; i<allRows.length;i++) {
+		if (allRows[i].className.indexOf('entry') != -1) {
+	       	inRows[k++] = allRows[i];
+		} else if (allRows[i].className.indexOf('noshow') == -1) {
+		allRows[i].className = allRows[i].className + ' noshow';
+		}
+	}
+
+	// find/set number of searchable columns
+	// by default script searches all columns
+	var cols = searchTable.getElementsByTagName('thead')[0].getElementsByTagName('th').length;
+	// to set a fixed number of columns, uncomment next line
+	// var cols = 4  // search the left 'cols' columns
+
+	// count number of hits
+	var hits = 0;
+
+	// start looping through all rows
+	for (var i = 0; cRow = inRows[i]; i++){
+	
+	inCells = cRow.getElementsByTagName('td');
+	var gevonden = false; 
+  
+	for (var j=0; j<cols; j++) { // only first 'cols' columns
+		cCell = inCells[j];
+		var t = cCell.innerText?cCell.innerText:getTextContent(cCell);
+		if ((tInput.value.length == 0) || (t.search(searchText) != -1)){ gevonden=true; } 
+	}
+
+	gevonden == true?cRow.className = 'entry show':cRow.className = 'entry noshow';
+	gevonden == true?hits++:hits=hits;
+	}
+
+	// update statistics
+	setStatistics(hits)
+}
+
+                    function toggleInfo(articleid,info) {
+
+	var entry = document.getElementById(articleid);
+	var abs = document.getElementById('abs_'+articleid);
+	var rev = document.getElementById('rev_'+articleid);
+	var bib = document.getElementById('bib_'+articleid);
+	
+	if (abs && info == 'abstract') {
+		if(abs.className.indexOf('abstract') != -1) {
+		abs.className.indexOf('noshow') == -1?abs.className = 'abstract noshow':abs.className = 'abstract';
+		}
+	} else if (rev && info == 'review') {
+		if(rev.className.indexOf('review') != -1) {
+		rev.className.indexOf('noshow') == -1?rev.className = 'review noshow':rev.className = 'review';
+		}
+	} else if (bib && info == 'bibtex') {
+		if(bib.className.indexOf('bibtex') != -1) {
+		bib.className.indexOf('noshow') == -1?bib.className = 'bibtex noshow':bib.className = 'bibtex';
+		}		
+	} else { 
+		return;
+	}
+
+	// check if one or the other is available
+	var revshow = false;
+	var absshow = false;
+	var bibshow = false;
+	(abs && abs.className.indexOf('noshow') == -1)? absshow = true: absshow = false;
+	(rev && rev.className.indexOf('noshow') == -1)? revshow = true: revshow = false;	
+	(bib && bib.className == 'bibtex')? bibshow = true: bibshow = false;
+	
+	// highlight original entry
+	if(entry) {
+		if (revshow || absshow || bibshow) {
+		entry.className = 'entry highlight show';
+		} else {
+		entry.className = 'entry show';
+		}		
+	}
+	
+	// When there's a combination of abstract/review/bibtex showing, need to add class for correct styling
+	if(absshow) {
+		(revshow||bibshow)?abs.className = 'abstract nextshow':abs.className = 'abstract';
+	} 
+	if (revshow) {
+		bibshow?rev.className = 'review nextshow': rev.className = 'review';
+	}
+	
+}
+
+                    function setStatistics (hits) {
+	var allRows = searchTable.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+	var entries = 0
+	for (var i=0; i<allRows.length;i++) {
+		if (allRows[i].className.indexOf('entry') != -1) {
+	       	entries++;
+		}
+	}
+	
+	if(hits < 0) { hits=entries; }
+
+	var stats = document.getElementById('stat');
+	if(stats) { stats.firstChild.data = hits + '/' + entries}
+}
+
+                    function getTextContent(node) {
+	// Function written by Arve Bersvendsen
+	// http://www.virtuelvis.com
+	
+	if (node.nodeType == 3) {
+	return node.nodeValue;
+	} // text node
+	if (node.nodeType == 1) { // element node
+	var text = [];
+	for (var chld = node.firstChild;chld;chld=chld.nextSibling) {
+		text.push(getTextContent(chld));
+	}
+	return text.join("");
+	} return ""; // some other node, won't contain text nodes.
+}
+
+                    function testEvent(e){
+	if (!e) var e = window.event;
+	quickSearch(this);
+}
+
+                    function clearQS() {
+	qsfield = document.getElementById('qsfield'); 
+	qsfield.value = '';
+	quickSearch(qsfield);
+}
+
+                    function redoQS(){
+	qsfield = document.getElementById('qsfield'); 
+	quickSearch(qsfield);
+}
+                </script>
+
+<style type="text/css">
+
+#qs { width: auto; border-style: solid; border-color: gray; border-width: 1px 1px 1px 1px; padding: 0.5em 0.5em; display:none;  }
+#qs form { padding: 0px; margin: 0px; }
+#qs form p { padding: 0px; margin: 0px; }
+
+table { border: 0px gray solid; width: 100%; empty-cells: show; }
+thead { height: 1px;}
+th, td { border: 0px gray solid; padding: 0.5em; vertical-align: top;  }
+td { text-align: left; vertical-align: top; }
+th { background-color: #FFFFFF; text-align: left;}
+
+
+
+td a, td a:hover { color: navy; font-weight: bold; }
+
+tr.noshow { display: none;}
+
+tr.highlight td { background-color: #FFFFFF; border-top: 1px black solid; font-weight: bold; }
+tr.abstract td, tr.review td, tr.bibtex td { background-color: #FFFFFF; border-bottom: 1px black solid; }
+tr.nextshow td { border-bottom: 1px gray solid; }
+
+tr.bibtex pre { width: 100%; overflow: auto;}
+
+p.infolinks { margin: 0.5em 0em 0em 0em; padding: 0px; }
+</style>
+       
+<!--<script src="http://bibbase.org/show?bib=http://goo.gl/cIS14i&jsonp=1"></script> -->
+<script src="http://bibbase.org/show?bib=https%3A%2F%2Fapi.zotero.org%2Fusers%2F2758230%2Fcollections%2FPIWMUJZT%2Fitems%3Fkey%3DvNnbvsk7gEU638PqoKabxaJR%26format%3Dbibtex%26limit%3D100&jsonp=1"></script>
+
+
+    
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+var sc_project=4174831;
+var sc_invisible=1;
+var sc_partition=48;
+var sc_click_stat=1;
+var sc_security="b0c4dcf6";
+</script>
+
+<script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script><noscript><div class="statcounter"><a title="web statistics" href="http://www.statcounter.com/free_web_stats.html" target="_blank"><img class="statcounter" src="http://c.statcounter.com/4174831/0/b0c4dcf6/1/" alt="web statistics" ></a></div></noscript>
+<!-- End of StatCounter Code -->
+<script type="text/javascript" src="/javascript/googleAnalytics.ps"></script>
+<script type="text/javascript" src="/javascript/googleAnalytics2.ps"></script>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-xxxxxx-x");
+pageTracker._trackPageview();
+</script>       
+    
+    <div class="learn-more">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Research</h3>
+                        <p>Current research interest is focused on theoretical and computational methods for molecular biophysics, protein complex formation, and stochastic effects in genetic networks.</p>
+                        <p><a href="projects.html">Go to Projects</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h3>People</h3>
+                        <p>We currently have 6 graduate students and 9 postdocs in our group.</p>
+                        <p><a href="people.html">Go to Current people</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Publications</h3>
+                        <p>View our current published work.</p>
+                        <p><a href="publications.html">Go to Publications</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">The Onuchic Group</p>
+      </div>
+    </footer>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<!----------------------------jQuery Library------------------------------------------------->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!------------------------Bootstrap javascript Library--------------------------------------->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
